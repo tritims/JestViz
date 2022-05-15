@@ -1,0 +1,27 @@
+ {
+    "name": "JestViz",
+    "version": "1.0",
+    "description": "Error notifier for devtools in browsers",
+    "permissions": ["storage", "notifications"],
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+    },
+    "web_accessible_resources": ["script.js", "popup.html"],
+    "content_scripts":[
+      {
+			"all_frames": true,
+			"js": [
+				"content.js"
+			],
+			"matches": [
+				"<all_urls>"
+			],
+			"run_at": "document_start"
+		}
+    ],
+    "browser_action": {
+      "default_icon": "./resource/icon.png"
+    },
+    "manifest_version": 2
+  }
